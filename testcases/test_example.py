@@ -2,6 +2,8 @@
 import pytest
 from selenium.webdriver.common.by import By
 from pages.example_page import ExamplePage
+import sys
+
 
 @pytest.mark.usefixtures("setup")
 class TestExample:
