@@ -1,24 +1,13 @@
-# Python package
-# Create and test a Python package on multiple Python versions.
-# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/python
-
 trigger:
 - master
 
 pool:
-  name: Default
-
-strategy:
-  matrix:
-    Python311:
-      python.version: '3.12'
+  name: Default  # This assumes you're using a self-hosted agent that has Python pre-installed
 
 steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
+- script: |
+    python --version  # Check the Python version installed on the agent
+  displayName: 'Check Python version'
 
 - script: |
     python -m pip install --upgrade pip
@@ -28,4 +17,4 @@ steps:
 - script: |
     pip install pytest pytest-azurepipelines
     pytest
-  displayName: 'pytest'
+  displayName: 'Run Tests with pytest'
