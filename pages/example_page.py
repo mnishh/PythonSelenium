@@ -9,7 +9,7 @@ class ExamplePage(Basefunction):
         #self.driver=driver
     
     def search(self):
-         elemto = self.driver.find_element(By.XPATH, '//a[text()=" Yatra for Business "]')
+         elemto = self.driver.find_element(By.XPATH, '//button[text()="Login"]')
          self.clock(elemto)
          #elem = self.driver.find_element(By.XPATH, '//input[@id="mobile-search"]')
          #self.scrollmethod(elemto)
